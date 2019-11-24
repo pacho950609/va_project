@@ -1,7 +1,8 @@
 <template>
   <div>
-    {{data}}
-    <svg id="imagen" width="1200" height="300"> ></svg>
+    <br>
+    <br>
+    <svg id="imagen" width="1100" height="500"></svg>
   </div>
 </template>
 
