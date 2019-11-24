@@ -91,19 +91,29 @@ export default {
 				.join("g")
 				.attr("transform", d => `translate(${x0(d[this.groupKey])},0)`)
 				.selectAll("rect")
-				.data(d => this.keys.map(key => ({ key, value: d[key] })))
+				.data(d =>
+					this.keys.map(key => ({
+						key,
+						value: d[key],
+						groupKey: d[this.groupKey]
+					}))
+				)
 				.join("rect")
 				.attr("x", d => x1(d.key))
 				.attr("y", d => y(d.value))
 				.attr("width", x1.bandwidth())
 				.attr("height", d => y(0) - y(d.value))
-				.attr("fill", d => color(d.key));
+				.attr("fill", d => color(d.key))
+				.on("click", this.onElementClick);
 
 			svg.append("g").call(xAxis);
 
 			svg.append("g").call(yAxis);
 
 			svg.append("g").call(legend);
+		},
+		onElementClick(d) {
+			console.log("hola", d);
 		}
 	}
 };
