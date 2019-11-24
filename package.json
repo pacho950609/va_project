@@ -1,0 +1,23 @@
+{
+  "name": "vaProject",
+  "version": "1.0.0",
+  "description": "Visual Analytics Project",
+  "author": "Francisco Ricaurte",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "deploy": "npm run generate && surge dist uppity-man.surge.sh"
+  },
+  "dependencies": {
+    "@types/d3": "^5.7.2",
+    "bootstrap": "^4.1.3",
+    "bootstrap-vue": "^2.0.0",
+    "d3": "^5.14.2",
+    "moment": "^2.24.0",
+    "nuxt": "^2.0.0"
+  },
+  "devDependencies": {}
+}
