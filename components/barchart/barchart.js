@@ -5,7 +5,13 @@ export default {
 		groupKey: { type: String, required: true },
 		keys: { type: Array, required: true },
 		data: { type: Array, required: true },
-		label: { type: String, required: true }
+		label: { type: String, required: true },
+		reload: { type: Number, required: true }
+	},
+	watch: {
+		async reload() {
+			await this.dibujar();
+		}
 	},
 	async mounted() {
 		await this.dibujar();
@@ -16,6 +22,7 @@ export default {
 			var width = 1100;
 			var margin = { top: 10, right: 10, bottom: 20, left: 40 };
 			const svg = d3.select("#imagen");
+			svg.selectAll("*").remove();
 
 			var x0 = d3
 				.scaleBand()
