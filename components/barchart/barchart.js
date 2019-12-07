@@ -120,7 +120,7 @@ export default {
 			svg.append("g").call(legend);
 		},
 		onElementClick(d) {
-			console.log("hola", d);
+			this.$emit('barEvent', d)
 		}
 	}
 };

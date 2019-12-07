@@ -1,6 +1,9 @@
 import * as d3 from "d3";
 export default {
 	name: "horizontalBoxplot",
+	props: {
+		data: { type: Array, required: true },
+	},	
 	async mounted() {
 		await this.dibujar();
 	},
@@ -8,16 +11,10 @@ export default {
 		async dibujar() {
 			const height = 240;
             const width = 1600;
-            const numPoints = 4000
+            const numPoints = 100
 			const margin = { left: 50, right: 10, top: 10, bottom: 50 };
 			const iwidth = width / 2 - margin.left - margin.right;
 			const iheight = height - margin.top - margin.bottom;
-			const studentsData = d3.range(numPoints).map(() => ({
-				age: Math.random() * 100,
-				tuition: Math.random() * 2500,
-				gpa: Math.random() * 160,
-				program: ["Engineering", "Arts", "Math"][Math.floor(Math.random() * 3)]
-			}));
 			const svg = d3.select("#boxplot");
 
 			const x = d3
@@ -34,10 +31,10 @@ export default {
 				.attr("transform", `translate(0,${iheight})`);
 
 			g.selectAll("circle")
-				.data(studentsData)
+				.data(this.data)
 				.join("circle")
-				.attr("cx", d => x(d.age))
-				.attr("cy", d => d.gpa)
+				.attr("cx", d => x(d.x))
+				.attr("cy", d => d.y)
 				.attr("r", 5);
 		}
 	}
