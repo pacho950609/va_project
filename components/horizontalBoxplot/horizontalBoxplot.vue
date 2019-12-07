@@ -2,7 +2,7 @@
   <div>
     <br>
     <br>
-    <svg id="boxplot" width="1600" height="250"> 
+    <svg id="boxplot" width="1600" height="300"> 
     </svg>
   </div>
 </template>

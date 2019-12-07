@@ -3,23 +3,30 @@ export default {
 	name: "horizontalBoxplot",
 	props: {
 		data: { type: Array, required: true },
+		reload: { type: Number, required: true }
+	},	
+	watch: {
+		async reload() {
+			await this.dibujar();
+		}
 	},	
 	async mounted() {
 		await this.dibujar();
 	},
 	methods: {
 		async dibujar() {
-			const height = 240;
+			const height = 290;
             const width = 1600;
-            const numPoints = 100
 			const margin = { left: 50, right: 10, top: 10, bottom: 50 };
 			const iwidth = width / 2 - margin.left - margin.right;
 			const iheight = height - margin.top - margin.bottom;
 			const svg = d3.select("#boxplot");
-
+			svg.selectAll("*").remove();
+			const maxX = Math.max(...this.data.map(x=> x.x))
+			const minX = Math.min(...this.data.map(x=> x.x))
 			const x = d3
 				.scaleLinear()
-				.domain([0, 100])
+				.domain([minX, maxX])
 				.range([0, iwidth]);
 
 			const g = svg
@@ -35,7 +42,7 @@ export default {
 				.join("circle")
 				.attr("cx", d => x(d.x))
 				.attr("cy", d => d.y)
-				.attr("r", 5);
+				.attr("r", 3.5);
 		}
 	}
 };

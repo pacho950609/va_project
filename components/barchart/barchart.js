@@ -23,7 +23,7 @@ export default {
 			var margin = { top: 10, right: 10, bottom: 20, left: 40 };
 			const svg = d3.select("#imagen");
 			svg.selectAll("*").remove();
-
+	
 			var x0 = d3
 				.scaleBand()
 				.domain(this.data.map(d => d[this.groupKey]))

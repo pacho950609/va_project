@@ -16,8 +16,15 @@
 				:reload="reload"
 				@barEvent="barEvent"
 			/>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text" id="basic-addon3">Numero maximo de bebes graficados</span>
+				</div>
+				<input type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" v-model="maxHorizontal">
+			</div>		
 			<horizontalBoxplot 
 				:data="horizontalData"
+				:reload="reload"
 			/>
 		</div>
 	</div>
@@ -40,15 +47,29 @@ export default {
 	},
 	methods: {
 		barEvent(barData){
-			console.log('corrio evento',barData)
 			const week = barData.groupKey.split(' ')[1]
-			console.log('week',week)
 			const data = this.getOptionItems(week)
-			console.log(data)
+			const res = data.map(x => {
+				return {
+					x: x.PesoAlNacer,
+					y: Math.random() * 220,
+					obj: x
+				}
+			})
+			if(res.length > this.maxHorizontal) {
+				this.horizontalData = res.slice(0,this.maxHorizontal)
+			} else {
+				this.horizontalData = res
+			}
+			this.reload++
 		},
 		getOptionItems(week) {
 			return fullData.filter( item => {
-				if(Math.floor(item.EdadGestacional1) == week) {
+				if (
+					!isNaN(item.PesoAlNacer) &&
+					!isNaN(item.EdadGestacional1) &&
+					Math.floor(item.EdadGestacional1) == week
+				) {
 					if(this.options == 1 && item.SexoBebe == 1) {
 						return true
 					} else if (this.options == 2 && item.SexoBebe == 2) {
@@ -154,7 +175,8 @@ export default {
 			reload: 0,
 			keys: ["Fenton", "Intergrowth"],
 			groupKey: "Semana",
-			label: "Bebes con problemas de crecimiento"
+			label: "Bebes con problemas de crecimiento",
+			maxHorizontal: 100
 		};
 	}
 };
