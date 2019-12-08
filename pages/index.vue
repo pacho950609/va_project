@@ -22,9 +22,14 @@
 				</div>
 				<input type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" v-model="maxHorizontal">
 			</div>		
+			<button @click="filtrarB(1)" type="button" class="btn btn-primary">Niños</button>
+			<button @click="filtrarB(2)" type="button" class="btn btn-primary">Niñas</button>			
 			<horizontalBoxplot 
 				:data="horizontalData"
 				:reload="reload"
+				:intergrowth="intergrowth"
+				:fenton="fenton"								
+				@boxplotEvent="boxplotEvent"
 			/>
 		</div>
 	</div>
@@ -46,21 +51,35 @@ export default {
 		this.setBarchartData();
 	},
 	methods: {
+		boxplotEvent(boxplotData) {
+			console.log('La data es',boxplotData)
+		},
 		barEvent(barData){
 			const week = barData.groupKey.split(' ')[1]
+			this.week = week
 			const data = this.getOptionItems(week)
-			const res = data.map(x => {
+			const res = data.filter(x=> {
+				if(x.SexoBebe == 1) {
+					return true
+				}
+				return false
+			}).map(x => {
 				return {
 					x: x.PesoAlNacer,
 					y: Math.random() * 220,
 					obj: x
 				}
 			})
+
 			if(res.length > this.maxHorizontal) {
 				this.horizontalData = res.slice(0,this.maxHorizontal)
 			} else {
 				this.horizontalData = res
 			}
+
+			const growItem = growData.find(x=> x.week == week)
+			this.fenton = growItem.fentonBoy
+			this.intergrowth = growItem.intergrowthBoy
 			this.reload++
 		},
 		getOptionItems(week) {
@@ -70,13 +89,7 @@ export default {
 					!isNaN(item.EdadGestacional1) &&
 					Math.floor(item.EdadGestacional1) == week
 				) {
-					if(this.options == 1 && item.SexoBebe == 1) {
-						return true
-					} else if (this.options == 2 && item.SexoBebe == 2) {
-						return true
-					} else if (this.options == 3 || this.options == 4) {
-						return true
-					}
+					return true
 				}
 				return false
 			})
@@ -98,6 +111,43 @@ export default {
 				}
 			}
 			this.data = data
+		},
+		filtrarB(option) {
+			this.boxplotOption = option
+			console.log(this.week)
+			const data = this.getOptionItems(this.week)
+			const res = data.filter(x=> {
+				if(x.SexoBebe == 1 && option == 1) {
+					return true
+				} else if (x.SexoBebe == 2 && option == 2) {
+					return true
+				}
+
+				return false
+			}).map(x => {
+				return {
+					x: x.PesoAlNacer,
+					y: Math.random() * 220,
+					obj: x
+				}
+			})
+
+			if(res.length > this.maxHorizontal) {
+				this.horizontalData = res.slice(0,this.maxHorizontal)
+			} else {
+				this.horizontalData = res
+			}
+
+			const growItem = growData.find(x=> x.week == this.week)
+			if(option == 1) {
+				this.fenton = growItem.fentonBoy
+				this.intergrowth = growItem.intergrowthBoy
+			}
+			if(option == 2) {
+				this.fenton = growItem.fentonGirl
+				this.intergrowth = growItem.intergrowthGirl
+			}						
+			this.reload++
 		},
 		filtrar(options){
 			this.options = options
@@ -176,7 +226,11 @@ export default {
 			keys: ["Fenton", "Intergrowth"],
 			groupKey: "Semana",
 			label: "Bebes con problemas de crecimiento",
-			maxHorizontal: 100
+			maxHorizontal: 100,
+			intergrowth:0,
+			fenton:0,
+			boxplotOption:1,
+			week:24
 		};
 	}
 };

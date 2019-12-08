@@ -3,7 +3,9 @@ export default {
 	name: "horizontalBoxplot",
 	props: {
 		data: { type: Array, required: true },
-		reload: { type: Number, required: true }
+		reload: { type: Number, required: true },
+		intergrowth: { type: Number, required: true },
+		fenton: { type: Number, required: true }
 	},	
 	watch: {
 		async reload() {
@@ -15,6 +17,7 @@ export default {
 	},
 	methods: {
 		async dibujar() {
+						console.log('longitud',this.data.length)
 			const height = 290;
             const width = 1600;
 			const margin = { left: 50, right: 10, top: 10, bottom: 50 };
@@ -37,12 +40,30 @@ export default {
 				.call(d3.axisBottom(x))
 				.attr("transform", `translate(0,${iheight})`);
 
+			g.append("rect")
+				.attr("x", x(this.fenton-10))
+      			.attr("y", 30)
+				.attr("width", 3)
+				.attr("height", 150)
+				.attr("fill","#98abc5")
+
+			g.append("rect")
+				.attr("x", x(this.intergrowth-10))
+      			.attr("y", 30)
+				.attr("width", 3)
+				.attr("height", 150)
+				.attr("fill","#8a89a6")			
+
 			g.selectAll("circle")
 				.data(this.data)
 				.join("circle")
 				.attr("cx", d => x(d.x))
 				.attr("cy", d => d.y)
-				.attr("r", 3.5);
+				.attr("r", 3.5)
+				.on("click", this.onElementClick); 				
+		},
+		onElementClick(d) {
+			this.$emit('boxplotEvent', d.obj)
 		}
 	}
 };
