@@ -5,7 +5,7 @@ export default {
 		data: { type: Array, required: true },
 		reload: { type: Number, required: true },
 		intergrowth: { type: Number, required: true },
-		fenton: { type: Number, required: true }
+		fenton: { type: Number, required: true },
 	},	
 	watch: {
 		async reload() {
@@ -17,7 +17,6 @@ export default {
 	},
 	methods: {
 		async dibujar() {
-						console.log('longitud',this.data.length)
 			const height = 290;
             const width = 1600;
 			const margin = { left: 50, right: 10, top: 10, bottom: 50 };
@@ -41,26 +40,69 @@ export default {
 				.attr("transform", `translate(0,${iheight})`);
 
 			g.append("rect")
-				.attr("x", x(this.fenton-10))
+				.attr("x", x(this.fenton - 2))
       			.attr("y", 30)
 				.attr("width", 3)
 				.attr("height", 150)
 				.attr("fill","#98abc5")
 
 			g.append("rect")
-				.attr("x", x(this.intergrowth-10))
+				.attr("x", x(this.intergrowth - 2))
       			.attr("y", 30)
 				.attr("width", 3)
 				.attr("height", 150)
 				.attr("fill","#8a89a6")			
-
+			
+			const normal = this.data.filter(x => {
+				if((x.x < this.intergrowth && x.x > this.fenton) || (x.x > this.intergrowth && x.x < this.fenton)) {
+					return false
+				}
+				return true
+			})
+			const interception = this.data.filter(x => {
+				if((x.x <= this.intergrowth && x.x >= this.fenton) || (x.x >= this.intergrowth && x.x <= this.fenton)) {
+					return true
+				}
+				return false
+			})
 			g.selectAll("circle")
-				.data(this.data)
+				.data(normal)
 				.join("circle")
 				.attr("cx", d => x(d.x))
 				.attr("cy", d => d.y)
 				.attr("r", 3.5)
-				.on("click", this.onElementClick); 				
+				.on("click", this.onElementClick); 	
+
+			for (const iterstor of interception) {
+					g.append("circle")
+						.attr("cx", d => x(iterstor.x))
+						.attr("cy", d => iterstor.y)
+						.attr("r", 3.5)
+						.on("click", this.onElementClick)				
+						.attr("fill","#ff0000");
+			}
+
+			g.append("rect")
+				.attr("x", 800)
+      			.attr("y", 30)
+				.attr("width", 20)
+				.attr("height", 20)
+				.attr("fill","#8a89a6")
+			g.append("text")
+				.attr("x", 830)
+      			.attr("y", 45)
+ 				.text('Percentil 10 Intergrowth')	
+
+			g.append("rect")
+				.attr("x", 800)
+      			.attr("y", 80)
+				.attr("width", 20)
+				.attr("height", 20)
+				.attr("fill","#98abc5")
+			g.append("text")
+				.attr("x", 830)
+      			.attr("y", 95)
+ 				.text('Percentil 10 Fenton')			
 		},
 		onElementClick(d) {
 			this.$emit('boxplotEvent', d.obj)

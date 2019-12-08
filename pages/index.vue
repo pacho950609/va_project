@@ -15,23 +15,27 @@
 				:groupKey="groupKey"
 				:reload="reload"
 				@barEvent="barEvent"
-			/>
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text" id="basic-addon3">Numero maximo de bebes graficados</span>
-				</div>
-				<input type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" v-model="maxHorizontal">
-			</div>		
-			<button @click="filtrarB(1)" type="button" class="btn btn-primary">Niños</button>
-			<button @click="filtrarB(2)" type="button" class="btn btn-primary">Niñas</button>			
-			<horizontalBoxplot 
-				:data="horizontalData"
-				:reload="reload"
-				:intergrowth="intergrowth"
-				:fenton="fenton"								
-				@boxplotEvent="boxplotEvent"
-			/>
+			/>	
+			<div v-if="horizontalData.length > 0">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">Numero maximo de bebes graficados</span>
+					</div>
+					<input type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" v-model="maxHorizontal">
+				</div>			
+				<button @click="filtrarB(1)" type="button" class="btn btn-primary">Niños</button>
+				<button @click="filtrarB(2)" type="button" class="btn btn-primary">Niñas</button>			
+				<horizontalBoxplot 
+					:data="horizontalData"
+					:reload="reload"
+					:intergrowth="intergrowth"
+					:fenton="fenton"								
+					@boxplotEvent="boxplotEvent"
+				/>
+			</div>	
+
 		</div>
+		<pre v-if="personInfo"><code>{{personInfo}}</code></pre>
 	</div>
 </template>
 
@@ -52,7 +56,7 @@ export default {
 	},
 	methods: {
 		boxplotEvent(boxplotData) {
-			console.log('La data es',boxplotData)
+			this.personInfo = boxplotData
 		},
 		barEvent(barData){
 			const week = barData.groupKey.split(' ')[1]
@@ -114,7 +118,6 @@ export default {
 		},
 		filtrarB(option) {
 			this.boxplotOption = option
-			console.log(this.week)
 			const data = this.getOptionItems(this.week)
 			const res = data.filter(x=> {
 				if(x.SexoBebe == 1 && option == 1) {
@@ -230,7 +233,8 @@ export default {
 			intergrowth:0,
 			fenton:0,
 			boxplotOption:1,
-			week:24
+			week:24,
+			personInfo:null
 		};
 	}
 };
