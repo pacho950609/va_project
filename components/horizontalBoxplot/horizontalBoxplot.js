@@ -66,21 +66,20 @@ export default {
 				return false
 			})
 			g.selectAll("circle")
-				.data(normal)
+				.data(this.data)
 				.join("circle")
 				.attr("cx", d => x(d.x))
 				.attr("cy", d => d.y)
 				.attr("r", 3.5)
-				.on("click", this.onElementClick); 	
-
-			for (const iterstor of interception) {
-					g.append("circle")
-						.attr("cx", d => x(iterstor.x))
-						.attr("cy", d => iterstor.y)
-						.attr("r", 3.5)
-						.on("click", this.onElementClick)				
-						.attr("fill","#ff0000");
-			}
+				.on("click", this.onElementClick)
+				.attr("fill",function(x){
+					console.log(x)
+					if((x.x <= x.intergrowth && x.x >= x.fenton) || (x.x <= x.fenton && x.x >= x.intergrowth) ) {
+						return "#ff0000"
+					}
+					return null	
+				});	
+			
 
 			g.append("rect")
 				.attr("x", 800)

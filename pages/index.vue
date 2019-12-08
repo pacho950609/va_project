@@ -62,6 +62,10 @@ export default {
 			const week = barData.groupKey.split(' ')[1]
 			this.week = week
 			const data = this.getOptionItems(week)
+			const growItem = growData.find(x=> x.week == week)
+			this.fenton = growItem.fentonBoy
+			this.intergrowth = growItem.intergrowthBoy
+
 			const res = data.filter(x=> {
 				if(x.SexoBebe == 1) {
 					return true
@@ -71,7 +75,9 @@ export default {
 				return {
 					x: x.PesoAlNacer,
 					y: Math.random() * 220,
-					obj: x
+					obj: x,
+					fenton: this.fenton,
+					intergrowth: this.intergrowth
 				}
 			})
 
@@ -80,10 +86,6 @@ export default {
 			} else {
 				this.horizontalData = res
 			}
-
-			const growItem = growData.find(x=> x.week == week)
-			this.fenton = growItem.fentonBoy
-			this.intergrowth = growItem.intergrowthBoy
 			this.reload++
 		},
 		getOptionItems(week) {
@@ -118,6 +120,17 @@ export default {
 		},
 		filtrarB(option) {
 			this.boxplotOption = option
+			const growItem = growData.find(x=> x.week == this.week)
+
+			if(option == 1) {
+				this.fenton = growItem.fentonBoy
+				this.intergrowth = growItem.intergrowthBoy
+			}
+			if(option == 2) {
+				this.fenton = growItem.fentonGirl
+				this.intergrowth = growItem.intergrowthGirl
+			}	
+
 			const data = this.getOptionItems(this.week)
 			const res = data.filter(x=> {
 				if(x.SexoBebe == 1 && option == 1) {
@@ -131,7 +144,9 @@ export default {
 				return {
 					x: x.PesoAlNacer,
 					y: Math.random() * 220,
-					obj: x
+					obj: x,
+					fenton: this.fenton,
+					intergrowth: this.intergrowth
 				}
 			})
 
@@ -139,17 +154,7 @@ export default {
 				this.horizontalData = res.slice(0,this.maxHorizontal)
 			} else {
 				this.horizontalData = res
-			}
-
-			const growItem = growData.find(x=> x.week == this.week)
-			if(option == 1) {
-				this.fenton = growItem.fentonBoy
-				this.intergrowth = growItem.intergrowthBoy
-			}
-			if(option == 2) {
-				this.fenton = growItem.fentonGirl
-				this.intergrowth = growItem.intergrowthGirl
-			}						
+			}					
 			this.reload++
 		},
 		filtrar(options){
