@@ -1,6 +1,7 @@
 <template>
 	<div class="container">
 		<br>
+		<h1>  Comparación curva Intergrowth y Fenton </h1>
 		<br>
 		En el siguiente gráfico se observa el número de personas que dado la curva Fenton e Intergrowth tienen problemas de crecimiento
 		para cada una de las semanas de gestación. Hay 4 botones en la parte superior que permiten 3 opciones de filtrado, de esta manera 
@@ -27,6 +28,7 @@
 			<br>
 			<br>
 			<div v-if="horizontalData.length > 0">
+				<h3>  Destribución del peso de los bebés para la semana de gestación {{week}} </h3>
 				En la siguiente gráfica se muestra la distribución de los pesos al nacer de los bebés de la semana seleccionada. Estarán pintados 
 				de color rojo aquellos puntos de personas que son considerados con problemas de crecimiento por una curva y no por la otra. Por 
 				defecto, inicialmente se mostrará la información de los bebés de género masculino y se  permitirá filtrar la información por género 
@@ -36,7 +38,7 @@
 				<br>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon3">Numero maximo de bebes graficados</span>
+						<span class="input-group-text" id="basic-addon3">Numero máximo de bebés graficados</span>
 					</div>
 					<input type="number" class="form-control" id="basic-url" aria-describedby="basic-addon3" v-model="maxHorizontal">
 				</div>			
@@ -52,7 +54,19 @@
 			</div>	
 
 		</div>
+		<h3 v-if="personInfo">  Información de la persona </h3>
+		<br>
 		<pre v-if="personInfo"><code>{{personInfo}}</code></pre>
+		<h1>  Insights </h1>
+		<ul>
+		<li>Para los bebés de género masculino no existe una diferencia entre que curva utilizar para semanas de gestacion entre 34 y 41</li>
+		<li>
+			Para los bebés de género femenino en general se tienen resultados muy diferentes dependiendo de que curva se utiliza para 
+			determinar si tienen problemas de crecimiento o no
+		</li>
+		</ul>		
+		<br>
+		<br>
 	</div>
 </template>
 
