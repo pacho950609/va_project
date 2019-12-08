@@ -2,6 +2,13 @@
 	<div class="container">
 		<br>
 		<br>
+		En el siguiente gráfico se observa el número de personas que dado la curva Fenton e Intergrowth tienen problemas de crecimiento
+		para cada una de las semanas de gestación. Hay 4 botones en la parte superior que permiten 3 opciones de filtrado, de esta manera 
+		se podrá visualizar la población masculina, femenina o de bebés prematuros. Finalmente, podrás hacer click en las barras de la gráfica 
+		con el fin de visualizar más información acerca de la semana seleccionada.
+
+		<br>
+		<br>
 		<button @click="filtrar(1)" type="button" class="btn btn-primary">Niños</button>
 		<button @click="filtrar(2)" type="button" class="btn btn-primary">Niñas</button>
 		<button @click="filtrar(3)" type="button" class="btn btn-primary">Prematuros</button>
@@ -16,7 +23,17 @@
 				:reload="reload"
 				@barEvent="barEvent"
 			/>	
+			<br>
+			<br>
+			<br>
 			<div v-if="horizontalData.length > 0">
+				En la siguiente gráfica se muestra la distribución de los pesos al nacer de los bebés de la semana seleccionada. Estarán pintados 
+				de color rojo aquellos puntos de personas que son considerados con problemas de crecimiento por una curva y no por la otra. Por 
+				defecto, inicialmente se mostrará la información de los bebés de género masculino y se  permitirá filtrar la información por género 
+				y número máximo de puntos que se desean dibujar. Finalmente, puedes hacer click en cualquiera de los puntos para observar más detalles 
+				de la persona. 
+				<br>
+				<br>
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon3">Numero maximo de bebes graficados</span>
