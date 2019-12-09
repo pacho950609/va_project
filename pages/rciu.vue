@@ -25,7 +25,7 @@
 		<div>
 			<div>
 
-			<iframe src="https://public.tableau.com/views/Flowers_15723185475430/Cantidad?:increment_view_count=no&:embed=y&:embed_code_version=3&:loadOrderID=0&:display_count=y&publish=yes&:origin=viz_share_link&:showVizHome=no" width="1004" height="600" frameborder="0"></iframe>
+			<iframe src="https://public.tableau.com/views/Intrauterino_con_segunda_DB/BoxplotAoRCIU?:display_count=y&publish=yes&:origin=viz_share_link&:showVizHome=no" width="1004" height="600" frameborder="0"></iframe>
 
 			</div>
 
@@ -48,7 +48,7 @@
 		<div>
 			<div>
 
-			<iframe src="https://public.tableau.com/views/Flowers_15723185475430/Cantidad?:increment_view_count=no&:embed=y&:embed_code_version=3&:loadOrderID=0&:display_count=y&publish=yes&:origin=viz_share_link&:showVizHome=no" width="1004" height="600" frameborder="0"></iframe>
+			<iframe src="https://public.tableau.com/views/Intrauterino_con_segunda_DB/RCIUdependiendoelSexo?:display_count=y&publish=yes&:origin=viz_share_link&:showVizHome=no" width="1004" height="600" frameborder="0"></iframe>
 
 			</div>
 
@@ -71,7 +71,7 @@
 		<div>
 			<div>
 
-			<iframe src="https://public.tableau.com/views/Flowers_15723185475430/Cantidad?:increment_view_count=no&:embed=y&:embed_code_version=3&:loadOrderID=0&:display_count=y&publish=yes&:origin=viz_share_link&:showVizHome=no" width="1004" height="600" frameborder="0"></iframe>
+			<iframe src="https://public.tableau.com/views/Intrauterino_con_segunda_DB/Dashboard1?:display_count=y&publish=yes&:origin=viz_share_link&:showVizHome=no" width="1004" height="600" frameborder="0"></iframe>
 
 			</div>
 
