@@ -1,7 +1,9 @@
 <template>
 	<div class="container">
 		<br>
+
 		<h1>  Comparación curva Intergrowth y Fenton </h1>
+
 		<br>
 		En el siguiente gráfico se observa el número de personas que dado la curva Fenton e Intergrowth tienen problemas de crecimiento
 		para cada una de las semanas de gestación. Hay 4 botones en la parte superior que permiten 3 opciones de filtrado, de esta manera 
@@ -9,6 +11,7 @@
 		con el fin de visualizar más información acerca de la semana seleccionada.
 
 		<br>
+		
 		<br>
 		<button @click="filtrar(1)" type="button" class="btn btn-primary">Niños</button>
 		<button @click="filtrar(2)" type="button" class="btn btn-primary">Niñas</button>
