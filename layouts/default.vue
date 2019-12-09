@@ -17,12 +17,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Fenton vs Intergrowth <span class="sr-only">(current)</span></a
+              <a class="nav-link" href="/container"
+                >Fenton vs Intergrowth</a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="/Tarea3">Impacto Factores familiares</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Pricing</a>
@@ -34,7 +34,16 @@
     <nuxt />
   </div>
 </template>
-
+<script>
+  import container from '../pages/index.vue';
+  import Tarea3 from '../pages/tarea3.vue';
+  export default {
+    components: {
+      container,
+      Tarea3
+    }
+  };
+</script>
 <style>
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",

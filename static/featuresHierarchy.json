@@ -1,0 +1,61 @@
+{
+  "Parametros" : [
+    {
+      "key" : "CoeficienteIntelectual6m",
+      "name" : "Coeficiente intelectual 6 meses",
+      "subdomain" : "Coeficiente6 connectivity",
+      "description" : "Coeficiente inteletual a los 6 meses de nacido.",
+      "interpretation": "Higher values, higher IC",
+      "units": "IC"
+    }, {
+      "key" : "CoeficienteIntelectual12m",
+      "name" : "Coeficiente intelectual 12 meses",
+      "subdomain" : "Coeficiente6 connectivity",
+      "description" : "Coeficiente inteletual a los 6 meses de nacido.",
+      "interpretation": "Higher values, higher IC",
+      "units": "IC"
+    } , {
+      "key" : "PuntajeExamenPsicomotor6m",
+      "name" : "Examen psicomotor 6 meses",
+      "subdomain" : "Psicomotor6 connectivity",
+      "description" : "Examen psicomtor a los 6 meses de nacido.",
+      "interpretation": "Higher values, higher IC",
+      "units": "IC"
+    } , {
+      "key" : "PuntajeExamenPsicomotor12m",
+      "name" : "Examen psicomotor 12 meses",
+      "subdomain" : "Psicomotor12 connectivity",
+      "description" : "Examen psicomtor a los 12 meses de nacido.",
+      "interpretation": "Higher values, higher IC",
+      "units": "IC"
+    } , {
+      "key" : "Infanib3m",
+      "name" : "Examen Neurológico 3 meses",
+      "subdomain" : "Neuro3 connectivity",
+      "description" : "Examen neurológico a los 3 meses de nacido.",
+      "interpretation": "Higher values, higher IC",
+      "units": "IC"
+    } , {
+      "key" : "Infanib6m",
+      "name" : "Examen Neurológico 6 meses",
+      "subdomain" : "Neuro6 connectivity",
+      "description" : "Examen neurológico a los 6 meses de nacido.",
+      "interpretation": "Higher values, higher IC",
+      "units": "IC"
+    } , {
+      "key" : "Infanib9m",
+      "name" : "Examen Neurológico 9 meses",
+      "subdomain" : "Neuro9 connectivity",
+      "description" : "Examen neurológico a los 9 meses de nacido.",
+      "interpretation": "Higher values, higher IC",
+      "units": "IC"
+    } , {
+      "key" : "Infanib12m",
+      "name" : "Examen Neurológico 12 meses",
+      "subdomain" : "Neuro12 connectivity",
+      "description" : "Examen neurológico a los 12 meses de nacido.",
+      "interpretation": "Higher values, higher IC",
+      "units": "IC"
+    }
+  ]
+}
