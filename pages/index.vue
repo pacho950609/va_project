@@ -2,7 +2,7 @@
 	<div class="container">
 		<br>
 
-		<h1 align="center">Bebés con RCIU en la última década</h1>
+		<h1>  Comparación curva Intergrowth y Fenton </h1>
 
 		<br>
 		En el siguiente gráfico se observa el número de personas que dado la curva Fenton e Intergrowth tienen problemas de crecimiento
