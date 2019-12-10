@@ -33,8 +33,9 @@
 			<div v-if="horizontalData.length > 0">
 				<h3>  Destribución del peso de los bebés para la semana de gestación {{week}} </h3>
 				En la siguiente gráfica se muestra la distribución de los pesos al nacer de los bebés de la semana seleccionada. Estarán pintados 
-				de color rojo aquellos puntos de personas que son considerados con problemas de crecimiento por una curva y no por la otra. Por 
-				defecto, inicialmente se mostrará la información de los bebés de género masculino y se  permitirá filtrar la información por género 
+				de color rojo aquellos puntos de personas que son considerados con problemas de crecimiento por ambas curvas, de color naranja aquellas
+				que solo con consideradas con problemas de crecimiento por una curva y de verde aquelas que no son concideradas con problemas de crecimiento. 
+				Por defecto, inicialmente se mostrará la información de los bebés de género masculino y se  permitirá filtrar la información por género 
 				y número máximo de puntos que se desean dibujar. Finalmente, puedes hacer click en cualquiera de los puntos para observar más detalles 
 				de la persona. 
 				<br>
