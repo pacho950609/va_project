@@ -25,7 +25,7 @@
               <a class="nav-link" href="/Tarea3">Impacto Factores familiares</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
+              <a class="nav-link" href="/rciu">RCIU</a>
             </li>
           </ul>
         </div>
