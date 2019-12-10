@@ -22,6 +22,9 @@ $ npm run generate
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 
+About project [click here](https://github.com/pacho950609/va_project/wiki)
+
+
 MIT License
 
 
