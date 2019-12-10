@@ -76,9 +76,8 @@
 			</div>
 
 		<br>
-		<br>
 
-		Con base en lo anterior, se reacciona inmediatamente en aquellos de nivel secundaria, donde presentan el mayor índice de RCIU, seguido de la parte técnica y universitaria. Esto puede significar que, sin contar la escolaridad primaria, a un mayor nivel de escolaridad, se reduce el riesgo de que el bebé pueda sufrir de RCIU y puede ser comprobado con visualizaciones de LAURA.
+		Con base en lo anterior, se reacciona inmediatamente en aquellos de nivel secundaria, donde presentan el mayor índice de RCIU, seguido de la parte técnica y universitaria. Esto puede significar que, sin contar la escolaridad primaria, a un mayor nivel de escolaridad, se reduce el riesgo de que el bebé pueda sufrir de RCIU. Esta afirmación puede estar acompañada de más variables que puede ser observado en las visualizaciones de impacto de factores familiares.
 
 		</div>
 
