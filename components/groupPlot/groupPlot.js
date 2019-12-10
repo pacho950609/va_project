@@ -305,7 +305,7 @@ export default {
         } else if (profile === 6) {
           return 'Entre 80 y 89 kilos';
         } else if (profile === 7) {
-          return 'Entre 90 y 89 kilos';
+          return 'Entre 90 y 99 kilos';
         } else if (profile === 8) {
           return '100 kilos o más';
         } else if (profile === null) { return 'Dato No Registrado';}
@@ -718,10 +718,10 @@ export default {
         descripcion += 'Retraso Psicomotor : '+ d.rsm12m;
       }
       else if(profile ==='PuntajeExamenPsicomotor6m'){
-        descripcion += 'Retraso Psicomotor : '+ d.ExamenPsicomotor6m;
+        descripcion += 'Retraso Psicomotor : '+ d.rsm6m;
       }
       else if(profile ==='PuntajeExamenPsicomotor12m'){
-        descripcion += 'Retraso Psicomotor : '+ d.ExamenPsicomotor12m;
+        descripcion += 'Retraso Psicomotor : '+ d.rsm12m;
       }
       else if(profile ==='Infanib3m' ||profile ==='Infanib6m' || profile ==='Infanib9m' || profile ==='Infanib12m'){
         if(d[profile] ===1){
